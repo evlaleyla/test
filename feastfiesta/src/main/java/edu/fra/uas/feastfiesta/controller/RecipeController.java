@@ -1,18 +1,25 @@
 package edu.fra.uas.feastfiesta.controller;
 
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.slf4j.Logger;
 
 @Controller
 public class RecipeController {
+    
+    Logger log = LoggerFactory.getLogger(RecipeController.class);
 
-    @RequestMapping(value = "hello", method=RequestMethod.GET)
-    @ResponseBody
-    public String getHelloWorld() {
-        return "<h1>Hello World Spring Boot!</h1>";
+      @Autowired
+   // private RecipeService recipeService;
+
+    @RequestMapping
+    public String get() {
+        log.debug("get() is called");
+        return "index.html";
     }
     
-}
+    
+    }
+  
